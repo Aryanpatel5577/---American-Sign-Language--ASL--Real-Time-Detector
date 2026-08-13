@@ -1,5 +1,4 @@
-Here is a clean, student-friendly README.md for your Sign Language Detection
-project, structured specifically for your Rutgers University portfolio.
+
 
 🤟 American Sign Language (ASL) Real-Time Detector
 
@@ -54,24 +53,6 @@ The project uses a custom dataset collected across 7 common gestures:
   - Dataset Size: 200+ images per gesture captured across various lighting
     conditions and hand angles.
 
-7. How It Works
-
-[ Webcam Video Feed ] ──> [ MediaPipe Hand Tracking ]
-                                  │
-                                  ▼
-                     [ Safe Crop & Aspect Scale ]
-                                  │
-                                  ▼
-                    [ 300x300 White Canvas Padding ]
-                                  │
-                                  ▼
-                   [ Keras Deep Learning Model ]
-                                  │
-                                  ▼
-               [ Confidence Filter + Frame Smoothing ]
-                                  │
-                                  ▼
-                     [ Real-Time On-Screen Label ]
 
 1.  Detection: OpenCV reads the video stream, and MediaPipe detects the 21
     keypoints of the hand.
@@ -82,23 +63,6 @@ The project uses a custom dataset collected across 7 common gestures:
 4.  Display: The system verifies confidence (>70%) and smooths predictions over
     recent frames before displaying the result on screen.
 
-8. Project Structure
-
-Sign-Language-Detection/
-│
-├── Data/                     # Custom gesture dataset (Auto-generated)
-│   ├── Hello/
-│   ├── I love you/
-│   └── ...
-│
-├── Model/                    # Trained AI weights and labels
-│   ├── keras_model.h5
-│   └── labels.txt
-│
-├── datacollection.py         # Custom dataset collection tool
-├── test.py                   # Main real-time prediction application
-├── requirements.txt          # Python dependencies list
-└── README.md                 # Project documentation
 
 9. Installation
 
@@ -106,15 +70,7 @@ Prerequisites:
 
   - Installed Python 3.10
 
-Setup Steps:
-
-1.  Clone the Repository:
-
-    git clone https://github.com/your-username/Sign-Language-Detection.git
-    cd Sign-Language-Detection
-
-2.  Install Dependencies:
-
+AND RUN
     python -m pip install -r requirements.txt
 
 10. How to Run
@@ -164,14 +120,6 @@ python test.py
     deserialization).
   - Building interactive developer tools to streamline dataset creation.
 
-14. Challenges & Solutions
-
-| Challenge                   | Cause                                                  | Solution                                                                           |
-| :-------------------------- | :----------------------------------------------------- | :--------------------------------------------------------------------------------- |
-| **`Deserialization Error`** | Keras 3 mismatch with Teachable Machine models         | Locked environment to `Python 3.10`, `tensorflow==2.15.0`, and `keras==2.15.0`.    |
-| **OpenCV Camera Crash**     | Hand moving out of frame bounds during cropping        | Added bounding box clipping checks (`max(0, ...)` and `min(...)`).                 |
-| **Text Flickering**         | Slight hand movements causing rapid confidence changes | Implemented a sliding history queue (`deque`) to smooth predictions across frames. |
-
 15. Future Improvements
 
   - Expand Vocabulary: Scale dataset to include the full A-Z ASL alphabet and
@@ -187,11 +135,8 @@ python test.py
   - Google Teachable Machine: Deep learning model architecture and training
     framework.
 
-17. License
-
-This project is open-source and available under the MIT License.
 
 18. Author
 
   - Aryan Patel
-  - Application for BS in Computer Science — Rutgers University
+
